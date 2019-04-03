@@ -1,6 +1,7 @@
 setwd("~/Desktop/salmon_counts")
 samples <- c("T1F1","T1F2","T1F3","T1F4","T2F1","T2F2","T2F3","T2F4","T3F1","T3F2","T3F3","T3F4","T4F1","T4F2","T4F3","T4F4")
 
+#read.sample is a function to read count files produced by HTSeq
 read.sample <- function(sample.name) {
   file.name <- paste(sample.name, ".counts", sep="")
   result <- read.delim(file.name, col.names=c("gene", "count"), sep="\t", colClasses=c("character", "numeric"))
