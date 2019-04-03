@@ -9,7 +9,6 @@ read.sample <- function(sample.name) {
 
 sample.1 <- read.sample(samples[1])
 head(sample.1)
-
 sample.2 <- read.sample(samples[2])
 sample.3 <- read.sample(samples[3])
 sample.4 <- read.sample(samples[4])
