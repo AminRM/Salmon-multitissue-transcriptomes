@@ -25,10 +25,8 @@ sample.14 <- read.sample(samples[14])
 sample.15 <- read.sample(samples[15])
 sample.16 <- read.sample(samples[16])
 
-
 nrow(sample.1) == nrow(sample.2)
 all(sample.1$gene == sample.2$gene)
-
 
 all.data <- sample.1
 all.data <- cbind(sample.1, sample.2$count, sample.3$count, sample.4$count, sample.5$count, sample.6$count, sample.7$count,sample.8$count,sample.9$count, sample.10$count, sample.11$count, sample.12$count, sample.13$count, sample.14$count,sample.15$count, sample.16$count)
@@ -36,5 +34,4 @@ head(all.data)
 tail(all.data)
 all.data <- all.data[1:(nrow(all.data)-5),]
 head(all.data)
-
 colnames(all.data) <- samples
