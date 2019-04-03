@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=Liv_T1F1
-#SBATCH --nodes=2
+#SBATCH --nodes=1
 #SBATCH --ntasks-per-node=4
 #SBATCH --mem=12gb
 #SBATCH --time=120:00:00
