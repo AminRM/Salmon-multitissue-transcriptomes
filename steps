@@ -1,0 +1,25 @@
+bowtie2-build.sh
+#!/bin/bash
+#SBATCH --output dump.out
+#SBATCH --error dump.err
+#SBATCH --mem=20gb
+#SBATCH --time=16:00:00
+#SBATCH --mail-user=amin.esmail@csiro.au
+
+module load bowtie
+module load samtools
+bowtie2-build GCA_000233375.4_ICSASG_v2_genomic.fna salmon_genome
+
+#!/bin/bash
+#SBATCH --output  dump.out
+#SBATCH --error dump.err
+#SBATCH --mem=20gb
+#SBATCH --time=16:00:00
+#SBATCH --ntasks-per-node=10
+#SBATCH --mail-user=amin.esmail@csiro.au
+
+module load bowtie
+module load samtools
+bowtie2 -p 8 --very-sensitive -x salmon_genome -1 ${FILE}_R1.fastq.gz -2 ${FILE}_R2.fastq.gz |samtools view -u - |samtools sort -> ${FILE}.bam
+
+to submit these jobs: 
