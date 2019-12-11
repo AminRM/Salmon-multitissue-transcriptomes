@@ -5,7 +5,6 @@ bowtie2-build.sh
 #SBATCH --mem=20gb
 #SBATCH --time=16:00:00
 #SBATCH --mail-user=amin.esmail@csiro.au
-
 module load bowtie
 module load samtools
 bowtie2-build GCA_000233375.4_ICSASG_v2_genomic.fna salmon_genome
@@ -17,7 +16,6 @@ bowtie2-build GCA_000233375.4_ICSASG_v2_genomic.fna salmon_genome
 #SBATCH --time=16:00:00
 #SBATCH --ntasks-per-node=10
 #SBATCH --mail-user=amin.esmail@csiro.au
-
 module load bowtie
 module load samtools
 bowtie2 -p 8 --very-sensitive -x salmon_genome -1 ${FILE}_R1.fastq.gz -2 ${FILE}_R2.fastq.gz |samtools view -u - |samtools sort -> ${FILE}.bam
@@ -33,7 +31,6 @@ for i  in `cat file_names2`; do sbatch --export FILE=$i bowtie2.sh ;done
 #SBATCH --mem=10gb
 #SBATCH --time=40:00
 #SBATCH --mail-user=amin.esmail@csiro.au
-
 module load bedtools
 bedtools genomecov -bg -split -ibam ${FILE} -g /flush3/moh034/RNA-Seq/genome.txt > ${FILE}.split.bg
 bedtools genomecov -bg  -ibam ${FILE}  -g /flush3/moh034/RNA-Seq/genome.txt > ${FILE}.bg
@@ -44,5 +41,4 @@ bedtools genomecov -bg  -ibam ${FILE}  -g /flush3/moh034/RNA-Seq/genome.txt > ${
 #SBATCH --mem=10gb
 #SBATCH --time=40:00
 #SBATCH --mail-user=amin.esmail@csiro.au
-
 /apps/kentutils/v302/bin/bedGraphToBigWig ${FILE} /flush3/moh034/RNA-Seq/genome.txt ${FILE}.bw
