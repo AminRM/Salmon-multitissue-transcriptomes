@@ -1,1 +1,1 @@
-# Salmon_Transcriptomics
+# Salmon multi-tissue Transcriptomics
