@@ -20,8 +20,7 @@ et = exactTest(exp_study)
 # exp_study contains the normalized counts that can be plotted at MDS, BCV plots 
 
 #you can extract cpm from the exp_study here, as follows 
-
-log2-transform to be able to show as heat map 
+#log2-transform to be able to show as heat map 
 
 logcpm <- cpm(exp_study, prior.count=2, log=TRUE)
 
